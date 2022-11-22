@@ -39,7 +39,7 @@ partial class Program
             return response == "success" ? Results.Ok("Bill created successfully") : Results.Problem(response);
         })
         .WithName("BillingBills");
-        app.MapPost("/billing/paymenthistory", (int ClientId, BillingContracts _BillingServices) =>
+        app.MapGet("/billing/history", (int ClientId, BillingContracts _BillingServices) =>
         {
             if (_BillingServices.getClient(ClientId) != null)
             {
@@ -50,6 +50,6 @@ partial class Program
                 return Results.Problem($"No client associated with id {ClientId}");
             }
         })
-        .WithName("BillingPaymentHistory");
+        .WithName("BillingHistory");
     }
 }
