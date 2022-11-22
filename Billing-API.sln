@@ -5,6 +5,10 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billing-API", "Billing-API\Billing-API.csproj", "{7CDDC569-0EDC-426D-82EA-2F0A95F20C95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingLibrary", "BillingLibrary\BillingLibrary.csproj", "{64EEE228-8A55-4719-AB27-EE045118A1A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingApiTest", "BillingApiTest\BillingApiTest.csproj", "{6AA88DE6-6F4F-49D5-B090-381D33289070}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7CDDC569-0EDC-426D-82EA-2F0A95F20C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CDDC569-0EDC-426D-82EA-2F0A95F20C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CDDC569-0EDC-426D-82EA-2F0A95F20C95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64EEE228-8A55-4719-AB27-EE045118A1A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64EEE228-8A55-4719-AB27-EE045118A1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64EEE228-8A55-4719-AB27-EE045118A1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64EEE228-8A55-4719-AB27-EE045118A1A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AA88DE6-6F4F-49D5-B090-381D33289070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AA88DE6-6F4F-49D5-B090-381D33289070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AA88DE6-6F4F-49D5-B090-381D33289070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AA88DE6-6F4F-49D5-B090-381D33289070}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
