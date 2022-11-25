@@ -5,12 +5,12 @@ using System.Net.Http.Json;
 
 namespace BillingApiTest
 {
-    public class BillEndpointsTest : IClassFixture<BillWebApplicationFactory<Program>>
+    public class IntegrationTest : IClassFixture<BillWebApplicationFactory<Program>>
     {
         private readonly BillWebApplicationFactory<Program> _factory;
         private readonly HttpClient _httpClient;
 
-        public BillEndpointsTest(BillWebApplicationFactory<Program> factory)
+        public IntegrationTest(BillWebApplicationFactory<Program> factory)
         {
             _factory = factory;
             _httpClient = factory.CreateClient();
