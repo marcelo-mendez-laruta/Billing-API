@@ -13,24 +13,29 @@ namespace BillingLibrary
 {
     public class BillingContext : DbContext
     {
-        private object options;
-
         public DbSet<BillModel> Bills { get; set; }
         public DbSet<ClientModel> Clients { get; set; }
         public string DbPath { get; }
         public BillingContext()
         {
-            var MyConfig = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-            DbPath = MyConfig.GetSection("DbPath").Value!;
-            var path = DbPath ?? "H:\\";
-            DbPath = Path.Join(path, "billing.db");
+            try
+            {
+                var MyConfig = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+                DbPath = MyConfig.GetSection("DbPath").Value ?? "C:\\billing.db";
+            }
+            catch (Exception)
+            {
+
+                DbPath = "E:\\billing.db";
+            }
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlite($"Data Source={DbPath}");
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var _utils= new Utils();
+            var _utils = new Utils();
             modelBuilder.Entity<BillModel>()
                 .HasKey(c => c.Id);
             modelBuilder.Entity<ClientModel>().HasData(new ClientModel[] {
@@ -74,7 +79,7 @@ namespace BillingLibrary
             });
 
         }
-        
+
     }
 
 }
