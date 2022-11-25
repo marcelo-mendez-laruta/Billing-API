@@ -6,17 +6,27 @@ dotnet build
 ```
 ## Database
 ### DB Location
-Previously remember to edit the value "ConnectionString" in appsetings.json
+Copy the file `./Extras/billing.db` inside the path `C://`, if you want to change the location remember to edit the value "ConnectionString" in appsetings.json
 ```json
 {
     //...
-    "ConnectionString":"D:\\"
+    "ConnectionString":"C:\\"
     //...
 }
 ```
-### Create DB and initial records
-To create the database and initial records we need to execute the next comandline in the BillinbLibrary folder path:
+### Run Test
+To run unit test you need to run the command below:
 
 ```
-dotnet ef database update
+dotnet test
+```
+### Run API
+To run the API you need to run the command below:
+```
+dotnet run
+```
+### Publish for production
+To publish for production you need to run the command below:
+```
+dotnet publish -c Release
 ```
