@@ -13,6 +13,8 @@ namespace BillingLibrary
 {
     public class BillingContext : DbContext
     {
+        private object options;
+
         public DbSet<BillModel> Bills { get; set; }
         public DbSet<ClientModel> Clients { get; set; }
         public string DbPath { get; }
@@ -23,6 +25,7 @@ namespace BillingLibrary
             var path = DbPath ?? "H:\\";
             DbPath = Path.Join(path, "billing.db");
         }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlite($"Data Source={DbPath}");
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -11,9 +11,15 @@ namespace BillingLibrary
             db = new BillingContext();
             _utils = new Utils();
         }
-
-        public string Create(BillModel request)
+        public BillingServices(BillingContext _db)
         {
+            db = _db;
+            _utils = new Utils();
+        }
+
+        public List<BillModel> Create(BillModel request)
+        {
+            List<BillModel> response= new();
             try
             {
                 if (ValidateDate(request.Period))
@@ -34,25 +40,26 @@ namespace BillingLibrary
                             db.Add(newRequest);
                         });
                         db.SaveChanges();
-                        return "success";
+                        return response;
                     }
                     if (getClient(request.ClientId) != null)
                     {
                         db.Add(request);
+                        response.Add(request);
                         db.SaveChanges();
-                        return "success";
+                        return response;
                     }
-                    return $"Client with id {request.ClientId} not found.";
+                    return response;
                 }
                 else
                 {
-                    throw new Exception("Check that the period format is YYYYMM");
+                    return response;
                 }
 
             }
             catch (Exception e)
             {
-                return $"Error: {e}";
+                return response;
             }
         }
         public List<BillModel> Pending(int ClientId)
@@ -99,7 +106,7 @@ namespace BillingLibrary
         }
         public List<BillModel> PaymentHistory(int ClientId)
         {
-            return db.Bills.Where(bill => bill.ClientId == ClientId).ToList();
+            return db.Bills.Where(bill => bill.ClientId == ClientId && bill.State=="Paid").ToList();
         }
 
         public ClientModel? getClient(int ClientId)

@@ -3,7 +3,7 @@ namespace BillingLibrary
 {
     public interface BillingContracts
 	{
-        string Create(BillModel request);
+        List<BillModel> Create(BillModel request);
         List<BillModel> Pending(int ClientId);
         string Pay(BillModel request);
         string PayById(int Id);

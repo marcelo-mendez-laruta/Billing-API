@@ -23,7 +23,6 @@ namespace BillingLibrary.Models
     {
         public int Id { get; set; }
         public string? Name { get; set; }
-        public List<BillModel>? Payments { get; set; }
         public DateTime CreatedOn { get; set; } = DateTime.Now;
         public DateTime? UpdatedOn { get; set; } = DateTime.Now;
     }
